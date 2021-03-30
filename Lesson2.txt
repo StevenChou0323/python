@@ -1,0 +1,60 @@
+python只有#當單行註解(沒有JS的/** */多行註解這東西)
+
+用\延續一行文字
+>>> sum = 0
+>>> sum = 1 + \
+...       2 + \
+...       3
+>>> sum
+6
+
+或者用()較直覺
+>>> sum = ( 1 +
+...     2 +
+...     3 )
+>>> sum
+6
+
+會被視為False的值
+bool False
+null None
+整數 0
+浮點數 0.0
+空字串 '' 或 ""
+空陣列 []
+空tuple ()
+空字典 {}
+空集合 set()
+
+邏輯運算值
+JS      python
+&&或&   and
+||或|   or
+!       not
+
+
+範例:檢查是不是母音(參考Lesson2_hw)
+可以用in檢查變數是不是在下面的物件類型內
+1.set
+2.list
+3.tuple
+4.dict
+5.string
+
+海象運算子:=可以將賦值和測試寫在同一行(除了if for跟while也可以使用)
+
+a = 280
+b = "blah" * 50
+diff = a - len(b)
+if diff >= 0:
+    print("test1")
+else:
+    print("test2")
+
+可寫成
+a = 280
+b = "blah" * 50
+if diff:= a - len(b) >= 0:
+    print("test1")
+else:
+    print("test2")
