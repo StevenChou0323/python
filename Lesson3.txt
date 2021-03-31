@@ -1,0 +1,59 @@
+''或者""皆可以是文字(跟JS用法一樣)
+'''或者"""可以表達多行字串(像JS的tagged templates `I am a man`)
+
+>>> ''' I'm a
+... man'''
+" I'm a\nman"
+
+>>> """ I'm a
+... man"""
+" I'm a\nman"
+
+
+>>> print("give", 'me', '''money''', """thanks""")
+give me money thanks
+
+print可以用逗號隔開印出的log print會自動加上空格最後一個加上換行符號(跟JS的console.log一樣)
+
+r代表原始字串會取消轉義(\n)用法
+>>> info = r'Type a \n to get a new line'
+>>> info
+'Type a \\n to get a new line'
+>>> print(info)
+Type a \n to get a new line
+
+
+r不會取消真正的換行
+>>> info = r'''Boys
+...     love
+...     Girls'''
+>>> info
+'Boys\n\tlove\n\tGirls'
+>>> print(info)
+Boys
+        love
+        Girls
+
+
+可以用*重複字串內容
+>>> "hey " * 3
+'hey hey hey '
+>>>
+
+字串index可以帶負數(代表從後面第幾個數回來) JS不行
+>>> name = "steven"
+>>> name[-1]
+'n'
+
+不管是正數或者負數index 
+超過就會報錯
+>>> name[-7]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+
+字串不能直接更改會報錯(JS不能更改 但是不會報錯)
+>>> name[0] = 'u'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
