@@ -222,3 +222,96 @@ true
 >>> name.swapcase()
 'STEVE NASH'
 
+格式化
+1.舊式(Python2跟Python3)
+2.新式(Python2.6以上)
+3.f-strings(Python3.6以上)
+
+舊式:
+%s 字串
+%d 10進制整數
+%x 16進制整數
+%o 8進制整數
+%f 10進制浮點數
+%e 指數浮點數
+%g 10進制或指數浮點數
+%% 常數%
+
+>>> cat = 'meimei'
+>>> weight = 10
+>>> "my cat %s weights %s pounds" % (cat,weight)
+'my cat meimei weights 10 pounds'
+
+舊式格式化規則:
+1. 初始化'%'
+2. 對齊字元 +代表靠右 -代表靠左
+3. 選用最小寬度
+4. .隔開最小寬度跟最大字元
+5. 最大字元(%s的情況下) 如果是%f代表小數點後精確位數
+
+>>> thing = "woodchuck"
+>>> '%s' % thing
+'woodchuck'
+>>> '%20s' % thing
+'           woodchuck'
+>>> '%-20s' % thing
+'woodchuck           '
+>>> '%+20s' % thing
+'           woodchuck'
+>>> '%+20.3s' % thing
+'                 woo'
+
+
+新式
+.format
+帶tuple
+>>> thing = 'woodchuck'
+>>> place = 'lake'
+>>> 'The {} is in this {}'.format(thing, place)
+
+'The woodchuck is in this lake'
+給參數預設值
+>>> 'My name is {name}'.format(name = 'Steven')
+'My name is Steven'
+
+帶dict
+>>> d = {'name': 'Steven'}
+>>> 'My name is {0[name]}'.format(d)
+'My name is Steven'
+
+新式格式化規則:
+1. 初始化':'
+2. fill填補字元(預設為' ') 在字串比最小寬度的時候會去做填補動作
+3. 對齊字元 '<'往左對齊(預設) '>'往右對齊 '^'代表中間 
+4. 符號供數字使用 '-'負數 ''負數前面加上負號 ' '正數
+5. 選用最小寬度
+6. .隔開最小寬度跟最大字元
+7. 最大字元
+
+>>> thing = 'wraith'
+>>> place = 'window'
+>>> 'The {:>10s} is at the {:!^20}'.format(thing, place)
+'The     wraith is at the !!!!!!!window!!!!!!!'
+
+
+f-strings
+直接在開頭的引號前加上f或F
+在{}加入運算式或者變數名稱
+(此方式比較像JS的tagged templates)
+
+>>> thing = 'wereduck'
+>>> place = 'werepond'
+>>> f'The {thing} is in the {place}'
+'The wereduck is in the werepond'
+
+加入運算式
+>>> f'The {thing.upper()} is in the {place.rjust(20)}'
+'The WEREDUCK is in the             werepond'
+
+f_strings格式化規則同新制規則
+
+可以加入=來除錯(Python3.8以上的新功能)
+>>> thing = 'wereduck'
+>>> place = 'werepond'
+>>> f'The {thing=} is in the {place=}'
+"The thing='wereduck' is in the place='werepond'"
