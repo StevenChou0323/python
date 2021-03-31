@@ -39,6 +39,10 @@ Boys
 >>> "hey " * 3
 'hey hey hey '
 >>>
+比較JS:
+"hey ".repeat(3)
+"hey hey hey "
+
 
 字串index可以帶負數(代表從後面第幾個數回來) JS不行
 >>> name = "steven"
@@ -57,3 +61,164 @@ IndexError: string index out of range
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
+
+Slice
+可以用slice取得子字串(不包括結束index 也就是只取到結束前一位index)
+[開始:結束:間隔]
+
+>>> name = "steven"
+>>> name[:]
+'steven'
+倒轉方式
+>>> name[-1::-1]
+'nevets'
+或
+>>> name[::-1]
+'nevets'
+
+>>> name[1:3]
+'te'
+
+跟JS字串的slice用法一樣 只不過JS沒有間隔參數
+
+補充:JS還有 
+1.substring(開始,結束)
+跟slice幾乎相同,但允許開始大於結束
+不支持負數,會被視為0
+2.substr(開始,長度)
+允許開始是負數
+
+substr不是JS核心規範中描述,歷史因素而存在僅瀏覽器的特性,非瀏覽器可能無法支援它
+JS建議用slice即可
+
+Split
+>>> b = "get gloves,get mask"
+>>> b.split(',')
+['get gloves', 'get mask']
+>>> b.split()
+['get', 'gloves,get', 'mask']
+
+會依split內的參數回傳切割後的list
+split()不加參數,則會回傳以空白當單位切割字串list
+
+比較JS:
+JS的split()不加參數,則會把字串直接塞入一個array[0]
+let b  = "get gloves,get mask"
+b.split(',')
+(2) ["get gloves", "get mask"]
+b.split()
+["get gloves,get mask"]
+
+
+Join
+把list用某個字串串起來
+>>> c =  ["get gloves", "get mask"]
+>>> ', '.join(c)
+'get gloves, get mask'
+
+比較JS:
+JS的join是array的func,不是字串的func
+let c =  ["get gloves", "get mask"]
+c.join(',')
+"get gloves,get mask"
+
+Replace
+>>> a = 'a duck goes into a bar'
+預設會把符合的字串全部換成新的
+>>> a.replace('a ', 'a famous ')
+'a famous duck goes into a famous bar'
+也可以只要指定符合的字串更換幾個
+>>> a.replace('a ', 'a famouse ', 1)
+'a famouse duck goes into a bar'
+
+比較JS:
+JS沒有第三個參數指定要換幾個符合的字串
+預設也只會換第一個符合的字串
+a = 'a duck goes into a bar'
+a.replace('a ', 'a famouse ')
+"a famouse duck goes into a bar"
+
+Strip
+>>> word = "   earth   "
+
+預設是砍掉左邊跟右邊空白
+>>> word.strip()
+'earth'
+>>> word.strip(' ')
+'earth'
+
+找不到字元就不會去動它
+>>> word.strip('!')
+'   earth   '
+
+可以用lstrip跟rstrip去砍左邊或者右邊的空白
+>>> word.lstrip(' ')
+'earth   '
+>>> word.lstrip()
+'earth   '
+
+find跟index
+find找不到字元會回傳-1 index是直接拋出例外
+>>> name = 'steve nash'
+
+>>> name.find('s')
+0
+>>> name.find('z')
+-1
+
+>>> name.index('s')
+0
+>>> name.index('z')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+
+>>> name.rfind('s')
+8
+>>> name.rindex('s')
+8
+
+>>> name.rfind('z')
+-1
+>>> name.rindex('z')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+
+
+比較JS:
+字串只有indexOf或lastIndexOf回傳字元所在的index(-1則為不存在)
+a = "123123"
+
+a.indexOf('1')
+0
+a.indexOf('4')
+-1
+
+a.lastIndexOf('1')
+3
+a.lastIndexOf("4")
+-1
+
+字串也可以用includes回傳true或false代表存不存在
+a.includes("1")
+true
+
+至於find在JS中是array的方法後面要帶入function
+[1,2,3].find((element)=>element >= 2)
+2
+[1,2,3].findIndex((element)=>element >= 2)
+1
+
+大小寫(考驗英文能力)
+>>> name.capitalize()
+'Steve nash'
+>>> name.title()
+'Steve Nash'
+>>> name.upper()
+'STEVE NASH'
+>>> name.lower()
+'steve nash'
+>>> name.swapcase()
+'STEVE NASH'
+
