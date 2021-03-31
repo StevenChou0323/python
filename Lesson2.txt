@@ -42,7 +42,7 @@ JS      python
 5.string
 
 海象運算子:=可以將賦值和測試寫在同一行(除了if for跟while也可以使用)
-
+(海象運算子只有在python3.8以上才可以使用)
 a = 280
 b = "blah" * 50
 diff = a - len(b)
