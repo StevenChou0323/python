@@ -1,0 +1,71 @@
+while for 可以搭配else來檢查有沒有觸發break(非常神奇的寫法)
+
+number = [1,3,5]
+pos = 0
+while pos < len(number):
+    if number[pos] > 10:
+        print(number[pos])
+        break
+    pos += 1
+else:
+    print("no match")
+
+
+number = [1,3,5]
+
+for element in number:
+    if element > 5:
+        print(element)
+        break
+else:
+    print("no match")
+
+for in跟JS不同的地方是搜尋變數代表值,不是index
+
+>>> thing = wereduck
+>>> for letter in thing:
+...     print(letter)
+...
+w
+e
+r
+e
+d
+u
+c
+k
+
+JS會是
+let name = "steven"
+for(let word in name){
+    console.log(word)
+}
+0
+1
+2
+3
+4
+5
+
+
+Rang
+range(開始,結束,間隔)
+跟slice一樣不包括間隔
+重點是回傳一個可迭代的物件(slice是回傳字串)
+>>> for num in range(2,-1,-1):
+...     print(num)
+...
+2
+1
+0
+
+>>> list(range(2,-1,-1))
+[2, 1, 0]
+
+>>> num = range(2,-1,-1)
+>>> num[1]
+1
+
+
+
+
