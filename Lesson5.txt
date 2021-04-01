@@ -1,0 +1,101 @@
+tuple不可變 list可變
+
+空tuple
+>>> tuple_test = ()
+>>> type(tuple_test)
+<class 'tuple'>
+
+單一值tuple(記得最後面一定要加逗號,不然會變成字串)
+>>> tuple_test = 'Steven',
+>>> type(tuple_test)
+<class 'tuple'>
+
+>>> tuple_test = ('Steven',)
+>>> type(tuple_test)
+<class 'tuple'>
+
+>>> tuple_test = ('Steven')
+>>> type(tuple_test)
+<class 'str'>
+
+多個值tuple(最後面可加可不加逗號)
+>>> tuple_test = 'Steven', 'John', 'Wayne'
+>>> type(tuple_test)
+<class 'tuple'>
+
+>>> tuple_test = 'Steven', 'John', 'Wayne',
+>>> type(tuple_test)
+<class 'tuple'>
+
+unpacking(拆包)
+>>> tuple_test = 'Steven', 'John', 'Wayne'
+>>> a,b,c = tuple_test
+
+>>> a
+'Steven'
+>>> b
+'John'
+>>> c
+'Wayne'
+
+在JS裡面其實就是解構的使用
+let tuple_test = ["Steven", "John", "Wayne"]
+let [b, c , d] = tuple_test
+
+b
+"Steven"
+c
+"John"
+d
+"Wayne"
+
+
+交換變數
+>>> a = 10
+>>> b = 2
+>>> a,b = b,a
+
+>>> a
+2
+>>> b
+10
+
+比較JS:
+let a= 10
+let b= 2
+[a,b]=  [b,a]
+
+a
+2
+b
+10
+
+可以用+來結合tuple但是會回傳一個新的值給之前的變數
+>>> t1 = ('Fee', 'Fie')
+>>> t2 = ('Flop',)
+
+>>> t1+=t2
+>>> t1
+('Fee', 'Fie', 'Flop')
+>>> id(t1)
+1575143944512
+
+tuple可用for in迭帶
+>>> for name in tuple_test:
+...     print(name)
+...
+Steven
+John
+Wayne
+
+tuple()list()可以將tuple、string、set、dict轉成tuple
+>>> a = {1,2,3}
+>>> type(a)
+<class 'set'>
+
+>>> type(tuple(a))
+<class 'tuple'>
+
+list()可以將tuple、string、set、dict轉成list
+>>> list('cat')
+['c', 'a', 't']
