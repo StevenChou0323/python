@@ -1,3 +1,5 @@
+------------------------------Tuple------------------------------
+
 tuple不可變 list可變
 
 空tuple
@@ -96,6 +98,54 @@ tuple()list()可以將tuple、string、set、dict轉成tuple
 >>> type(tuple(a))
 <class 'tuple'>
 
+
+------------------------------List------------------------------
+
 list()可以將tuple、string、set、dict轉成list
 >>> list('cat')
 ['c', 'a', 't']
+
+跟JS一樣用str用split()
+來回傳一個list
+不過JS可以用marxe.split('')直接拆開成字元
+
+比較:
+>>> marxe = 'abc'
+>>> marxe.split('')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: empty separator
+>>> marxe.split(' ')
+['abc']
+
+let a = '123'
+a.split('')
+["1", "2", "3"]
+
+比較特別的地方是:index可以用負號(從結尾往回數第幾個)
+>>> marxe = ['a', 'b', 'c']
+>>> marxe[-1]
+'c'
+
+跟JS一樣有reverse()
+>>> marxe = ['a', 'b', 'c']
+>>> marxe.reverse()
+>>> marxe
+['c', 'b', 'a']
+
+append(值) 將新的值放到尾端
+
+inset(index, 值)
+>>> marxe = ['a', 'b', 'c']
+>>> marxe.insert(100, 'd')
+>>> marxe
+['a', 'b', 'c', 'd']
+超過index範圍會自動補在最後一位
+
+slice右邊只要是可跌代物件都可以
+>>> marxe
+['a', 'b', 'c', 'd']
+>>> marxe[2:4] = (99,100)
+>>> marxe
+['a', 'b', 99, 100]
+
