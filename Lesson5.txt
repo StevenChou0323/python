@@ -212,6 +212,7 @@ tuple通常可以取代list 但方法很少
 
 tuple跟string沒有類似串列生成式(list comprehension)  因為它們不可變
 
+
 list set dict都有生成式
 串列生成式的[]改成()會變成產生器生成式(generator comprehension)
 >>> number_list = (number for number in range(1,6) if number % 2 == 1)
