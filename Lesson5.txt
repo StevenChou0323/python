@@ -149,3 +149,71 @@ slice右邊只要是可跌代物件都可以
 >>> marxe
 ['a', 'b', 99, 100]
 
+刪除element方式
+
+del marxe[0] 可以刪除項目
+
+marxe.remove("a")
+
+marxe.pop(0)會回傳'a'
+
+index可以找element 找不到會拋出錯誤,找到會回傳第一個符合的index
+
+count計算element在list中出現幾次
+
+join跟split相反
+
+list淺拷貝
+list() copy() slice
+
+list深拷貝
+import copy
+>>> marxe = ['1','2',[4,5]]
+>>> import copy
+>>> marxe2 = copy.deepcopy(marxe)
+>>> marxe2
+['1', '2', [4, 5]]
+>>> marxe2[2] = 3
+>>> marxe
+['1', '2', [4, 5]]
+>>> marxe2
+['1', '2', 3]
+
+zip()可以迭代多個值
+會在最短的list完成時停止,比較長的list後面的elment就不做事
+zip()會回傳一個可迭代的產物
+>>> english = 'Monday', 'Tuesday'
+>>> french = 'Lundi', 'Mardi'
+>>> zip(english, french)
+<zip object at 0x0000016C2C6E7AC0>
+>>> list(zip(english, french))
+[('Monday', 'Lundi'), ('Tuesday', 'Mardi')]
+>>> dict(zip(english, french))
+{'Monday': 'Lundi', 'Tuesday': 'Mardi'}
+
+串列生成式(list comprehension)
+利用for in來生成list
+[運算式 for item in 可迭代物 if 條件式]
+
+>>> number_list = [number for number in range(1,6) if number % 2 == 1]
+>>> number_list
+[1, 3, 5]
+
+>>> number_list = [number - 1 for number in range(1,6) if number % 2 == 1]
+>>> number_list
+[0, 2, 4]
+
+tuple vs list
+tuple通常可以取代list 但方法很少
+1. tuple佔用空間少
+2. tuple不能改變
+3. tuple可以當dict使用
+4. 具名tuple
+
+tuple跟string沒有類似串列生成式(list comprehension)  因為它們不可變
+
+list set dict都有生成式
+串列生成式的[]改成()會變成產生器生成式(generator comprehension)
+>>> number_list = (number for number in range(1,6) if number % 2 == 1)
+>>> number_list
+<generator object <genexpr> at 0x0000016C2C6E84A0>
